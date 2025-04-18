@@ -73,7 +73,7 @@ string MonthShortName(short MonthIndex)
 	return ArrMonths[MonthIndex - 1];
 }
 
-void HeadOfCalender(short MonthIndex)
+void HeadOfCalendar(short MonthIndex)
 {
 	cout << endl;
 
@@ -84,9 +84,9 @@ void HeadOfCalender(short MonthIndex)
 	cout << "\n\n" << "Sun  " << "Mon  " << "Tue  " << "Wed  " << "Thu  " << "Fri  " << "Sat  \n";
 }
 
-void MyCalender(short Year, short Month)
+void MyCalendar(short Year, short Month)
 {
-	HeadOfCalender(Month);
+	HeadOfCalendar(Month);
 
 	short NumberOfDayes = DaysInMonth(Year, Month);
 
@@ -124,5 +124,5 @@ int main()
 	short Year = ReadNum("Enter a year : ");
 	short Month = ReadNum("\nEnter a month : ");
 
-	MyCalender(Year, Month);
+	MyCalendar(Year, Month);
 }
