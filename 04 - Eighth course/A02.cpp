@@ -7,9 +7,9 @@
 
 using namespace std;
 
-int ReadYear()
+short ReadYear()
 {
-	int Num;
+	short Num;
 
 	cout << "Enter a year : ";
 	cin >> Num;
@@ -50,7 +50,7 @@ bool IsLeapYear(int Num)
 
 int main()
 {
-	int Year = ReadYear();
+	short Year = ReadYear();
 
 	if (IsLeapYear(Year))
 	{
