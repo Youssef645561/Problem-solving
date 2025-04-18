@@ -7,9 +7,9 @@
 
 using namespace std;
 
-int ReadYear()
+short ReadYear()
 {
-	int Num;
+	short Num;
 
 	cout << "Enter a year : ";
 	cin >> Num;
@@ -28,14 +28,14 @@ int ReadYear()
 
 }
 
-bool IsLeapYear(int Num)
+bool IsLeapYear(short Year)
 {
-	return ((Num % 400 == 0) || ((Num % 4 == 0) && (Num % 100 != 0)));
+	return ((Year % 400 == 0) || ((Year % 4 == 0) && (Year % 100 != 0)));
 }
 
 int main()
 {
-	int Year = ReadYear();
+	short Year = ReadYear();
 
 	if (IsLeapYear(Year))
 	{
