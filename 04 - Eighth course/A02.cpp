@@ -28,17 +28,17 @@ short ReadYear()
 
 }
 
-bool IsLeapYear(int Num)
+bool IsLeapYear(short Year)
 {
-	if (Num % 400 == 0)
+	if (Year % 400 == 0)
 	{
 		return true;
 	}
-	else if (Num % 4 != 0)
+	else if (Year % 4 != 0)
 	{
 		return false;
 	}
-	else if (Num % 100 == 0)
+	else if (Year % 100 == 0)
 	{
 		return false;
 	}
