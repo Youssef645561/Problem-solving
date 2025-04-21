@@ -7,38 +7,37 @@
 
 using namespace std;
 
-short ReadYear()
+int ReadYear()
 {
-	short Num;
+	int Year;
 
 	cout << "Enter a year : ";
-	cin >> Num;
+	cin >> Year;
 
-	while (cin.fail()) //true or false
+	while (cin.fail() || Year <= 0) //true or false
 	{
 		cin.clear();
 
 		cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
 		cout << "\nWrong input,\nPLease enter a valid number : ";
-		cin >> Num;
+		cin >> Year;
 	}
 
-	return Num;
-
+	return Year;
 }
 
-bool IsLeapYear(short Year)
+bool IsLeapYear(int Year)
 {
 	if (Year % 400 == 0)
 	{
 		return true;
 	}
-	else if (Year % 4 != 0)
+	else if (Year % 100 == 0)
 	{
 		return false;
 	}
-	else if (Year % 100 == 0)
+	else if (Year % 4 != 0)
 	{
 		return false;
 	}
@@ -50,14 +49,14 @@ bool IsLeapYear(short Year)
 
 int main()
 {
-	short Year = ReadYear();
+	int Year = ReadYear();
 
 	if (IsLeapYear(Year))
 	{
-		cout << "\nYes, year " << Year << " is a leap year." << endl;
+		cout << "\nYes, " << Year << " is a leap year." << endl;
 	}
 	else
 	{
-		cout << "\nNo, year " << Year << " is not a leap year." << endl;
+		cout << "\nNo, " << Year << " is not a leap year." << endl;
 	}
 }
