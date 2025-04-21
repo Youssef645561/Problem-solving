@@ -37,13 +37,13 @@ bool IsLeapYear(int Year)
 	{
 		return false;
 	}
-	else if (Year % 4 != 0)
+	else if (Year % 4 == 0)
 	{
-		return false;
+		return true;
 	}
 	else
 	{
-		return true;
+		return false;
 	}
 }
 
