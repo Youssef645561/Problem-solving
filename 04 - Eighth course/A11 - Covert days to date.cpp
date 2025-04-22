@@ -34,16 +34,6 @@ int ReadPositiveNum(string Message)
 	return Num;
 }
 
-string UnderScore(short Num)
-{
-	string UnderScoreText = "";
-
-	for (short C = 1; C <= Num; C++)
-		UnderScoreText += '_';
-
-	return UnderScoreText;
-}
-
 bool IsLeapYear(int Year)
 {
 	return (((Year % 4 == 0) && (Year % 100 != 0)) || (Year % 400 == 0));
@@ -82,26 +72,21 @@ short GetDaysNumFromBeginningOfYear(int Year, short Month, short Day)
 	return TotalDays;
 }
 
-stDate ConvertDaysNumToDate(int Year, short TotalDays)
+int main()
 {
+	short Day = ReadPositiveNum("Enter a day : ");
+	short Month = ReadPositiveNum("\nEnter a month : ");
+	int Year = ReadPositiveNum("\nEnter a year : ");
+
+	short TotalDays = GetDaysNumFromBeginningOfYear(Year, Month, Day);
+
+	cout << "\nNumber of days from the beginning of the year is " << TotalDays << endl;
+
 	stDate Date;
 
-	if (TotalDays > 366)
-	{
-		Date.Day = 0;
-		Date.Month = 0;
-		Date.Year = Year;
-
-		return Date;
-	}
-
-
-
 	Date.Year = Year;
-
 	short MonthDays;
 	short RemainingDays = TotalDays;
-
 
 	while (true)
 	{
@@ -118,23 +103,6 @@ stDate ConvertDaysNumToDate(int Year, short TotalDays)
 		Date.Day = RemainingDays;
 		break;
 	}
-
-	return Date;
-}
-
-int main()
-{
-	short Day = ReadPositiveNum("Enter a day : ");
-	short Month = ReadPositiveNum("\nEnter a month : ");
-	int Year = ReadPositiveNum("\nEnter a year : ");
-
-	short TotalDays = GetDaysNumFromBeginningOfYear(Year, Month, Day);
-
-	cout << "\nNumber of days from the beginning of the year is " << TotalDays << endl;
-
-	stDate Date;
-
-	Date = ConvertDaysNumToDate(Year, TotalDays);
 
 	cout << "\n\nDate for [" << TotalDays << "] is : " << Date.Day << "/" << Date.Month << "/" << Date.Year << endl;
 }
