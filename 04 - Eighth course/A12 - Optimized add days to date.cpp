@@ -69,25 +69,21 @@ stDate ReadFullDate()
 	return Date;
 }
 
-short NumOfDaysFromYearBeginning(short Day, short Month, int Year)
+stDate ConvertDaysNumToDate(stDate Date, short TotalDays)
 {
-	short TotalDays = Day;
 
-	for (short i = 1; i < Month; i++)
+	if (TotalDays > 366)
 	{
-		TotalDays += NumOfDaysInMonth(Year, i);
+		Date.Day = 0;
+		Date.Month = 0;
+		Date.Year = 0;
+
+		return Date;
 	}
 
-	return TotalDays;
-}
-
-stDate AddDaysToDate(stDate Date, int DaysToAdd)
-{
-	int RemainingDays = DaysToAdd + NumOfDaysFromYearBeginning(Date.Day, Date.Month, Date.Year);
-
 	short MonthDays;
+	short RemainingDays = TotalDays;
 
-	Date.Month = 1;
 
 	while (true)
 	{
@@ -107,10 +103,25 @@ stDate AddDaysToDate(stDate Date, int DaysToAdd)
 
 			continue;
 		}
-
 		Date.Day = RemainingDays;
 		break;
 	}
+
+	return Date;
+}
+
+stDate AddDaysToDate(stDate Date, int DaysToAdd)
+{
+	while (DaysToAdd > (IsLeapYear(Date.Year) ? 366 : 365))
+	{
+		DaysToAdd -= IsLeapYear(Date.Year) ? 366 : 365;
+
+		Date.Year++;
+	}
+
+	DaysToAdd += Date.Day;
+
+	Date = ConvertDaysNumToDate(Date, DaysToAdd);
 
 	return Date;
 }
@@ -119,11 +130,9 @@ int main()
 {
 	stDate Date = ReadFullDate();
 
-	int DaysToAdd = ReadPositiveNum("\nEnter how many days you want to add : ");
+	short DaysToAdd = ReadPositiveNum("\nEnter how many days you want to add : ");
 
 	Date = AddDaysToDate(Date, DaysToAdd);
 
 	cout << "\n\nDate after adding [" << DaysToAdd << "] days is : " << Date.Day << "/" << Date.Month << "/" << Date.Year << endl;
 }
-
-
