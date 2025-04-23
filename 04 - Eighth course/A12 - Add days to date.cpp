@@ -58,20 +58,6 @@ short NumOfDaysInMonth(int Year, short Month)
 	return 31;
 }
 
-short GetDaysNumFromBeginningOfYear(int Year, short Month, short Day)
-{
-	short TotalDays = 0;
-
-	for (short i = 1; i < Month; i++)
-	{
-		TotalDays += NumOfDaysInMonth(Year, i);
-	}
-
-	TotalDays += Day;
-
-	return TotalDays;
-}
-
 stDate ReadFullDate()
 {
 	stDate Date;
@@ -83,41 +69,47 @@ stDate ReadFullDate()
 	return Date;
 }
 
-stDate AddDaysToDate(stDate Date, short DaysToAdd)
+short NumOfDaysFromYearBeginning(short Day, short Month, int Year)
 {
-	while (DaysToAdd >= 365)
+	short TotalDays = Day;
+
+	for (short i = 1; i < Month; i++)
 	{
-		if (IsLeapYear(Date.Year))
-		{
-			Date.Year++;
-
-			DaysToAdd -= 366;
-
-			continue;
-		}
-		else
-		{
-			Date.Year++;
-
-			DaysToAdd -= 365;
-		}
+		TotalDays += NumOfDaysInMonth(Year, i);
 	}
+
+	return TotalDays;
+}
+
+stDate AddDaysToDate(stDate Date, int DaysToAdd)
+{
+	int RemainingDays = DaysToAdd + NumOfDaysFromYearBeginning(Date.Day, Date.Month, Date.Year);
 
 	short MonthDays;
 
-	Date.Day += DaysToAdd;
+	Date.Month = 1;
 
-	while (Date.Day >= (MonthDays = NumOfDaysInMonth(Date.Year, Date.Month)))
+	while (true)
 	{
-		if (Date.Month == 12)
+		MonthDays = NumOfDaysInMonth(Date.Year, Date.Month);
+
+		if (MonthDays < RemainingDays)
 		{
-			Date.Year++;
-			Date.Month = 0;
+			RemainingDays -= MonthDays;
+
+			Date.Month++;
+
+			if (Date.Month > 12)
+			{
+				Date.Year++;
+				Date.Month = 1;
+			}
+
+			continue;
 		}
 
-		Date.Month++;
-
-		Date.Day -= MonthDays;
+		Date.Day = RemainingDays;
+		break;
 	}
 
 	return Date;
@@ -127,7 +119,7 @@ int main()
 {
 	stDate Date = ReadFullDate();
 
-	short DaysToAdd = ReadPositiveNum("\nEnter how many days you want to add : ");
+	int DaysToAdd = ReadPositiveNum("\nEnter how many days you want to add : ");
 
 	Date = AddDaysToDate(Date, DaysToAdd);
 
