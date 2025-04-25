@@ -76,9 +76,9 @@ int main()
 	stDate Date = ConvertTextDateToStruct(DateText);
 
 
-	cout << "\nDay : " << Date.Day;
-	cout << "\nMonth : " << Date.Month;
-	cout << "\nYear  : " << Date.Year << endl;
+	cout << "\nDay         : " << Date.Day;
+	cout << "\nMonth       : " << Date.Month;
+	cout << "\nYear        : " << Date.Year << endl;
 
 	cout << "\nYou entered : " << ConvertStrcutDateToText(Date) << endl;
 }
