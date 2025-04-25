@@ -144,18 +144,14 @@ stDate DecrementDateByOneMonth(stDate Date)
 	}
 	else
 	{
-		short MonthDays = MonthDaysNum(Date.Month - 1, Date.Year);
+		Date.Month--;
+	}
 
-		if (IsLastDayInMonth(Date) && MonthDaysNum(Date.Month, Date.Year) > MonthDays)
-		{
-			Date.Month--;
+	short MonthDays = MonthDaysNum(Date.Month, Date.Year);
 
-			Date.Day = MonthDays;
-		}
-		else
-		{
-			Date.Month--;
-		}
+	if (Date.Day > MonthDays)
+	{
+		Date.Day = MonthDays;
 	}
 
 	return Date;
