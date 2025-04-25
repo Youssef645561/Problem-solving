@@ -236,17 +236,10 @@ short DaysUntilTheEndOfYear(stDate Date)
 
 int main()
 {
-	//stDate Date = GetSystemTime();
+	stDate Date = GetSystemTime();
 
-	stDate Date;
-
-	Date.Day = 23;
-	Date.Month = 9;
-	Date.Year = 2022;
-
-
+	
 	short DayIndex = GetDayIndex(Date);
-
 	string DayName = GetDayName(DayIndex);
 
 
