@@ -95,7 +95,7 @@ bool IsDateWithinPeriod(stPeriod Period, stDate Date)
 	return
 			!(CompareDate1ToDate2(Date, Period.StartDate) == enCompareResult::Before
 		||
-			CompareDate1ToDate2(Date, Period.StartDate) == enCompareResult::After);
+			CompareDate1ToDate2(Date, Period.EndDate) == enCompareResult::After);
 }
 
 int main()
