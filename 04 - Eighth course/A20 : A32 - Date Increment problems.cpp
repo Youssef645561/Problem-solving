@@ -74,8 +74,6 @@ bool IsLastMonthInYear(short Month)
 	return Month == 12;
 }
 
-
-
 bool IsDate1BeforDate2(stDate Date1, stDate Date2)
 {
 	return (Date1.Year < Date2.Year) || (Date1.Year == Date2.Year && Date1.Month < Date2.Month) || ((Date1.Year == Date2.Year && Date1.Month == Date2.Month) && (Date1.Day < Date2.Day));
@@ -201,7 +199,7 @@ stDate IncrementDateByXYearsFaster(stDate Date, int YearsToAdd)
 	{
 		Date.Year += YearsToAdd;
 
-		if (IsLeapYear(Date.Year))
+		if (!IsLeapYear(Date.Year))
 			Date.Day--;
 
 		return Date;
@@ -220,7 +218,7 @@ stDate IncrementDateByOneDecade(stDate Date)
 	{
 		Date.Year += 10;
 
-		if (IsLeapYear(Date.Year))
+		if (!IsLeapYear(Date.Year))
 			Date.Day--;
 
 		return Date;
@@ -249,7 +247,7 @@ stDate IncrementDateByXDecadesFaster(stDate Date, int DecadesToAdd)
 	{
 		Date.Year += (10 * DecadesToAdd);
 
-		if (IsLeapYear(Date.Year))
+		if (!IsLeapYear(Date.Year))
 			Date.Day--;
 
 		return Date;
@@ -268,7 +266,7 @@ stDate IncrementDateByOneCentury(stDate Date)
 	{
 		Date.Year += 100;
 
-		if (IsLeapYear(Date.Year))
+		if (!IsLeapYear(Date.Year))
 			Date.Day--;
 
 		return Date;
@@ -287,7 +285,7 @@ stDate IncrementDateByOneMillennium(stDate Date)
 	{
 		Date.Year += 1000;
 
-		if (IsLeapYear(Date.Year))
+		if (!IsLeapYear(Date.Year))
 			Date.Day--;
 
 		return Date;
@@ -312,7 +310,6 @@ int main()
 		Date = IncrementDateByOneYear(Date);
 		cout << "Test add one year : " << Date.Day << "/" << Date.Month << "/" << Date.Year << endl << endl;
 	}*/
-
 
 	Date = IncrementDateByOneDay(Date);
 	cout << "01 - Adding one day is              : " << Date.Day << "/" << Date.Month << "/" << Date.Year;
