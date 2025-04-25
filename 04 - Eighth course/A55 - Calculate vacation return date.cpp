@@ -160,11 +160,6 @@ bool IsWeekend(stDate Date)
 	return (DayIndex == 5 || DayIndex == 6);
 }
 
-bool IsBussinessDay(stDate Date)
-{
-	return !IsWeekend(Date);
-}
-
 stDate CalcReturnVacationDate(stDate DateFrom, short VacationDays)
 {
 	while (IsWeekend(DateFrom))
