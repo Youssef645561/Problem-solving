@@ -45,7 +45,7 @@ int SumMatrixRow(int Matrix[3][3], short RowNum, short Cols)
 	return Sum;
 }
 
-void SumMatrixRowInArr(int Matrix[3][3], short Rows, short Cols, int Arr[3])
+void SumMatrixRowsInArr(int Matrix[3][3], short Rows, short Cols, int Arr[3])
 {
 	for (short i = 0; i < Rows; i++)
 	{
