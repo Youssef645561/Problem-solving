@@ -40,6 +40,6 @@ int main()
 
 	FillMatrixWithOrderedNums(Matrix, 3, 3);
 
-	cout << "The following is a 3x3 random matrix :\n";
+	cout << "The following is a 3x3 matrix filled by ordered numbers :\n";
 	PrintMatrix(Matrix, 3, 3);
 }
