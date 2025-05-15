@@ -30,7 +30,7 @@ short CountLetterRepition(string Text, char LetterToCount)
 {
 	short Counter = 0;
 
-	for (short i = 0;i < Text.length();i++)
+	for (short i = 0; i < Text.length(); i++)
 	{
 		if (Text[i] == LetterToCount)
 		{
