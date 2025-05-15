@@ -52,7 +52,7 @@ short CountNumInMatrix(int Matrix[3][3], short Rows, short Cols, int NumToCount)
 	return Counter;
 }
 
-short IsMatrixSparse(int Matrix[3][3], short Rows, short Cols)
+bool IsMatrixSparse(int Matrix[3][3], short Rows, short Cols)
 {
 	return (CountNumInMatrix(Matrix, Rows, Cols, 0) > ((Rows * Cols) / 2));
 }
