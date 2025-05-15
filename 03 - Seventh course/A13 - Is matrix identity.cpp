@@ -34,7 +34,7 @@ void PrintMatrix(int Matrix[3][3], short Rows, short Cols)
 	cout << endl;
 }
 
-bool CheckIdentityMatrix(int Matrix[3][3], short Rows, short Cols)
+bool IsMatrixIdentity(int Matrix[3][3], short Rows, short Cols)
 {
 	for (short i = 0; i < Rows; i++)
 	{
@@ -60,16 +60,16 @@ int main()
 	cout << "Matrix :\n";
 	PrintMatrix(Matrix, 3, 3);
 
-/*
-	int IdentityMatrix[3][3] =
-	{
-		{1, 0, 0},
-		{0, 1, 0},
-		{0, 0, 1}
-	};
-*/
+	/*
+		int IdentityMatrix[3][3] =
+		{
+			{1, 0, 0},
+			{0, 1, 0},
+			{0, 0, 1}
+		};
+	*/
 
-	if (CheckIdentityMatrix(Matrix, 3, 3))
+	if (IsMatrixIdentity(Matrix, 3, 3))
 	{
 		cout << "\nYes, matrix is identity." << endl;
 	}
