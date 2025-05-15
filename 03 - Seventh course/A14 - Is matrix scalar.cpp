@@ -34,7 +34,7 @@ void PrintMatrix(int Matrix[3][3], short Rows, short Cols)
 	cout << endl;
 }
 
-bool CheckScalarMatrix(int Matrix[3][3], short Rows, short Cols)
+bool IsMatrixScalar(int Matrix[3][3], short Rows, short Cols)
 {
 	int DiagFirstNum = Matrix[0][0];
 
@@ -62,16 +62,16 @@ int main()
 	cout << "Matrix :\n";
 	PrintMatrix(Matrix, 3, 3);
 
-/*
-	int ScalarMatrix[3][3] =
-	{
-		{Num, 0, 0},
-		{0, Num, 0},
-		{0, 0, Num}
-	};
-*/
+	/*
+		int ScalarMatrix[3][3] =
+		{
+			{Num, 0, 0},
+			{0, Num, 0},
+			{0, 0, Num}
+		};
+	*/
 
-	if (CheckScalarMatrix(Matrix, 3, 3))
+	if (IsMatrixScalar(Matrix, 3, 3))
 	{
 		cout << "\nYes, matrix is scalar." << endl;
 	}
