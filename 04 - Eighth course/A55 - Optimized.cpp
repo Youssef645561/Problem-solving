@@ -167,7 +167,7 @@ bool IsBussinessDay(stDate Date)
 
 stDate CalcReturnVacationDate(stDate DateFrom, short VacationDays)
 {
-	while (VacationDays > 0)
+	while (VacationDays != 0 || IsWeekend(DateFrom))
 	{
 		if (IsBussinessDay(DateFrom))
 			VacationDays--;
