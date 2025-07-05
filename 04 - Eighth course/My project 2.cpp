@@ -244,6 +244,12 @@ stClientAccount ReadAccountNumAndPIN()
 }
 
 int ReadDepositAndWithdrawValue(string Message)
+{
+	cout << Message;
+	int Value = ReadPossitiveValidNumber();
+
+	return Value;
+}
 
 void DepositAndWithdraw(int Transaction)
 {
